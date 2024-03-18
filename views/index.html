@@ -1,0 +1,42 @@
+{{ block "index" . }}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
+    <title>PalDeck</title>
+  </head>
+  <body>
+    <h1>PalDeck</h1>
+
+    Pal Name: {{ .Name }}
+    <div>
+      <form hx-post="/add-film/">
+        <div>
+          <label for="film-title">Title</label>
+          <input type="text" name="title" id="film-title" />
+        </div>
+        <div>
+          <label for="film-director">Director</label>
+          <input type="text" name="director" id="film-director" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+{{ end }} {{ block "displayCard" . }}
+<div>
+  <h3>{{ .Key }} : {{ .Name }}</h3>
+  <img src="{{ .ImgUrl }}" />
+</div>
+
+{{ end }}
