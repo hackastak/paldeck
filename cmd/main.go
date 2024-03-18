@@ -4,9 +4,12 @@ import (
 	"fmt"
 	"html/template"
 	"io"
+	"os"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	_ "github.com/tursodatabase/libsql-client-go/libsql"
+
 )
 
 type Templates struct {
@@ -33,6 +36,15 @@ type Pal struct {
 
 func main () {
 	fmt.Println("Hey! It's fuck you buddy!")
+	tursoUrl := "libsql://paldeck-hackastak.turso.io?authToken=eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTA3MzE0NDcsImlkIjoiOWZiYmVjZWItMWI2ZC00Yzg0LTgzNmMtYjRlYmZlMmQxMTc4In0.pIJD1pTJYGvJX9sb_Z3iuwqKJuJrYwFuldj32k1uIRMwjUlmd1-lInXmjiY8oGJWzO5RUWYXvtcANgGd14y1BA"
+
+	db, err := sql.Open("libsql", tursoUrl)
+  if err != nil {
+    fmt.Fprintf(os.Stderr, "failed to open db %s: %s", tursoUrl, err)
+    os.Exit(1)
+  }
+  defer db.Close()
+
 
 	e := echo.New()
 	e.Use(middleware.Logger())
