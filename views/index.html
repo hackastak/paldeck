@@ -16,7 +16,7 @@
   <body>
     <h1>PalDeck</h1>
 
-    Pal Name: {{ .Name }}
+    {{ .ID }}: {{ .Name }} -- {{ .Key }}
     <div>
       <form hx-post="/add-film/">
         <div>
