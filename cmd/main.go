@@ -33,9 +33,21 @@ type Pal struct {
 	Key string
 }
 
-var pals []Pal
+func newPal(ID int, Name, Key string) Pal {
+	return Pal{
+		ID: ID,
+		Name: Name,
+		Key: Key,
+	}
+}
 
-func queryPals(db *sql.DB) {
+type Pals = []Pal
+
+type PalData struct {
+	Pals Pals
+}
+
+func queryPals(db *sql.DB) (Pals){
 	rows, err := db.Query("SELECT * FROM pals")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Failed to execute query: %v\n", err)
@@ -43,27 +55,30 @@ func queryPals(db *sql.DB) {
 	}
 	defer rows.Close()
 
+	Pals := []Pal{}
+
 	for rows.Next() {
 		var pal Pal
 
 		if err := rows.Scan(&pal.ID, &pal.Name, &pal.Key); err != nil {
 			fmt.Println("Error scanning row: ", err)
-			return
+			return nil
 		}
 
-		pals = append(pals, pal)
-		fmt.Printf("%d: %s -- %s\n", pal.ID, pal.Name, pal.Key)
+		Pals = append(Pals, pal)
+		fmt.Println("Pals Slice WIP: ", Pals)
 	}
 
 	if err := rows.Err(); err != nil {
 		fmt.Println("Error during rows iteration: ", err)
+		return nil
 	}
 
+	return Pals
 }
 
 
 func main () {
-
 	os.Setenv("PALDECK_TURSO_AUTH_URL", "libsql://paldeck-hackastak.turso.io")
 	os.Setenv("PALDECK_TURSO_AUTH_TOKEN", "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTExOTU2NzksImlkIjoiOWZiYmVjZWItMWI2ZC00Yzg0LTgzNmMtYjRlYmZlMmQxMTc4In0._3Xa4Rc1fBiOgBTH6JGAZ8QbO0_z-szhc6rm2v0zW9HaPRpvcOl052X4sdPlEI8MZOIBOmlpB95_KiLud-U3CA")
 	dbUrl := os.Getenv("PALDECK_TURSO_AUTH_URL")
@@ -78,18 +93,21 @@ func main () {
   }
   defer db.Close()
 
-	queryPals(db)
 	
+
+	data := queryPals(db)
+	PalData := PalData{Pals: data}
+	fmt.Println("Pals After Query: ", PalData)
 
 
 	e := echo.New()
 	e.Use(middleware.Logger())
 
-	pal := pals[0]
 	e.Renderer = newTemplate()
-
+	e.Static("/styles", "styles")
+ 
 	e.GET("/", func(c echo.Context) error {
-		return c.Render(200, "index", pal)
+		return c.Render(200, "index", PalData)
 	})
 	
 	e.Logger.Fatal(e.Start(":8000"))

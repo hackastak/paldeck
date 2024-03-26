@@ -1,0 +1,35 @@
+:root {
+  --primary-color: #f0f0f0;
+  --secondary-color: #f0f0f0;
+  --tertiary-color: #f0f0f0;
+  --quaternary-color: #f0f0f0;
+  --quinary-color: #f0f0f0;
+  --senary-color: #f0f0f0;
+  --septenary-color: #f0f0f0;
+  --octonary-color: #f0f0f0;
+  --nonary-color: #f0f0f0;
+  --denary-color: #f0f0f0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.pal-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pal-card-container {
+  display: flex;
+  width: 300px;
+  justify-content: center;
+  background: rgb(151, 151, 151);
+  margin: 10px;
+  padding: 5px;
+  .pal-card-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
