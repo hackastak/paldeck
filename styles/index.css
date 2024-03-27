@@ -20,16 +20,35 @@
 
 .pal-card-container {
   display: flex;
-  width: 300px;
+  max-width: 400px;
+  min-width: 300px;
+  flex-direction: column;
   justify-content: center;
   background: rgb(151, 151, 151);
   margin: 10px;
   padding: 5px;
-  .pal-card-header {
-    font-size: 1.2rem;
-    font-weight: bold;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
+  
+}
+
+.pal-card-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pal-card-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pal-card-details-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pal-card-suitability-container {
+  display: flex;
+  overflow: hidden;
 }

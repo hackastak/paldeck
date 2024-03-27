@@ -31,13 +31,15 @@ type Pal struct {
 	ID int
 	Name string
 	Key string
+	Description string
 }
 
-func newPal(ID int, Name, Key string) Pal {
+func newPal(ID int, Name, Key, Description string) Pal {
 	return Pal{
 		ID: ID,
 		Name: Name,
 		Key: Key,
+		Description: Description,
 	}
 }
 
