@@ -31,17 +31,25 @@ type Pal struct {
 	ID int
 	Name string
 	Key string
+	Type string
 	Description string
+	Aura string
+	AuraDescription string
+	Suitability []int
 }
 
-func newPal(ID int, Name, Key, Description string) Pal {
-	return Pal{
-		ID: ID,
-		Name: Name,
-		Key: Key,
-		Description: Description,
-	}
-}
+// func newPal(ID int, Name, Key, Type, Description, Aura, AuraDescription string, Suitability []int) Pal {
+// 	return Pal{
+// 		ID: ID,
+// 		Name: Name,
+// 		Key: Key,
+// 		Type: Type,
+// 		Description: Description,
+// 		Aura: Aura,
+// 		AuraDescription: AuraDescription,
+// 		Suitability: Suitability,
+// 	}
+// }
 
 type Pals = []Pal
 
@@ -107,6 +115,7 @@ func main () {
 
 	e.Renderer = newTemplate()
 	e.Static("/styles", "styles")
+	e.Static("/assets", "assets")
  
 	e.GET("/", func(c echo.Context) error {
 		return c.Render(200, "index", PalData)

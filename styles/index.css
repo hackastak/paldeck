@@ -24,10 +24,10 @@
   min-width: 300px;
   flex-direction: column;
   justify-content: center;
-  background: rgb(151, 151, 151);
+  background: rgb(188, 188, 188);
   margin: 10px;
-  padding: 5px;
-  
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .pal-card-header {
@@ -40,7 +40,17 @@
 
 .pal-card-body {
   display: flex;
-  justify-content: space-between;
+}
+
+.pal-card-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    border: 2px solid rgb(82, 82, 82);
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .pal-card-details-container {
@@ -48,7 +58,26 @@
   flex-direction: column;
 }
 
+.pal-card-footer {
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+
 .pal-card-suitability-container {
   display: flex;
   overflow: hidden;
+  .pal-card-suitability-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    .suitability-rank {
+      text-align: center;
+    }
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
 }
