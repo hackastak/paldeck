@@ -120,6 +120,10 @@ func main () {
 	e.GET("/", func(c echo.Context) error {
 		return c.Render(200, "index", PalData)
 	})
+
+	// e.POST("/pals/new", func(c echo.Context) error {
+	// 	return c.JSON(200, palData)
+	// })
 	
 	e.Logger.Fatal(e.Start(":8000"))
 

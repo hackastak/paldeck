@@ -1,0 +1,49 @@
+{{ block "createPal" .}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PalDeck</title>
+</head>
+<body>
+  <div class="form-container">
+    <form action="POST">
+      <div class='"form-input-group'>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-input-group">
+        <label for="key">Key:</label>
+        <input type="text" id="key" name="key" required>
+      </div>
+      <div class="form-input-group">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required>
+      </div>
+      <div class="form-input-group">
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" required>
+      </div>
+      <div class="form-input-group">
+        <label for="aura">Aura:</label>
+        <input type="text" id="aura" name="aura" required>
+      </div>
+      <div class="form-input-group">
+        <label for="auraDescription">Aura Description:</label>
+        <input type="text" id="auraDescription" name="auraDescription" required>
+      </div>
+      <div class="form-input-group">
+        <label for="workSuitability">Work Suitability:</label>
+        <input type="text" id="workSuitability" name="workSuitability" required>
+      </div>
+
+      <button type="submit">Create Pal</button>
+
+    </form>
+  </div>
+</body>
+</html>
+
+
+{{ end }}
