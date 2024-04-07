@@ -103,8 +103,6 @@ func main () {
   }
   defer db.Close()
 
-	
-
 	data := queryPals(db)
 	PalData := PalData{Pals: data}
 	fmt.Println("Pals After Query: ", PalData)
@@ -119,6 +117,10 @@ func main () {
  
 	e.GET("/", func(c echo.Context) error {
 		return c.Render(200, "index", PalData)
+	})
+
+	e.GET("/pals/new", func(c echo.Context) error {
+		return c.Render(200, "createPal", PalData)
 	})
 
 	// e.POST("/pals/new", func(c echo.Context) error {
