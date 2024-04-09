@@ -6,6 +6,7 @@ tmp_dir = "tmp"
   args_bin = []
   bin = "./tmp/main"
   cmd = "go build -o ./tmp/main cmd/main.go"
+  post_cmd = ["npx kill-port 8000"]
   delay = 0
   exclude_dir = ["node_modules", "assets", "tmp", "vendor", "testdata"]
   exclude_file = []
@@ -22,7 +23,7 @@ tmp_dir = "tmp"
   poll_interval = 0
   rerun = false
   rerun_delay = 500
-  send_interrupt = false
+  send_interrupt = false 
   stop_on_error = false
 
 [color]

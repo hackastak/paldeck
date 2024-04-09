@@ -41,11 +41,106 @@
         <label for="auraDescription">Aura Description:</label>
         <input type="text" id="auraDescription" name="auraDescription" required>
       </div>
-      <div class="form-input-group">
-        <label for="workSuitability">Work Suitability:</label>
-        <input type="text" id="workSuitability" name="workSuitability" required>
+      <p>Work Suitability: </p>
+      <div class='suitability-ranking-container'>
+        <div class="form-input-group">
+          <label for="kindling">
+            <img src="/assets/images/works/kindling.png" alt="Kindling">
+          </label>
+          <select id="kindling" name="kindling">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
+        <div class="form-input-group">
+          <label for="watering">
+            <img src="/assets/images/works/watering.png" alt="Watering">
+          </label>
+          <select id="watering" name="watering">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
+        <div class="form-input-group">
+          <label for="planting">
+            <img src="/assets/images/works/planting.png" alt="Planting">
+          </label>
+          <select id="planting" name="planting">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
+        <div class="form-input-group">
+          <label for="generating-electricity">
+            <img src="/assets/images/works/generating_electricity.png" alt="Generating Electricity">
+          </label>
+          <select id="generating-electricity" name="generating-electricity">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
+        <div class="form-input-group">
+          <label for="handiwork">
+            <img src="/assets/images/works/handiwork.png" alt="Handiwork">
+          </label>
+          <select id="handiwork" name="handiwork">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
+        <div class="form-input-group">
+          <label for="gathering">
+            <img src="/assets/images/works/gathering.png" alt="Gathering">
+          </label>
+          <select id="gathering" name="gathering">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
+        <div class="form-input-group">
+          <label for="lumbering">
+            <img src="/assets/images/works/lumbering.png" alt="Lumbering">
+          </label>
+          <select id="lumbering" name="lumbering">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
+        <div class="form-input-group">
+          <label for="mining">
+            <img src="/assets/images/works/mining.png" alt="Mining">
+          </label>
+          <select id="mining" name="mining">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
+        <div class="form-input-group">
+          <label for="medicine-production">
+            <img src="/assets/images/works/medicine_production.png" alt="Medicine Production">
+          </label>
+          <select id="medicine-production" name="medicine-production">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
+        <div class="form-input-group">
+          <label for="cooling">
+            <img src="/assets/images/works/cooling.png" alt="Cooling">
+          </label>
+          <select id="cooling" name="cooling">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
+        <div class="form-input-group">
+          <label for="transporting">
+            <img src="/assets/images/works/transporting.png" alt="Transporting">
+          </label>
+          <select id="transporting" name="transporting">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
+        <div class="form-input-group">
+          <label for="farming">
+            <img src="/assets/images/works/farming.png" alt="Farming">
+          </label>
+          <select id="farming" name="farming">
+            {{ template "suitability-options" .}}
+          </select>
+        </div>
       </div>
-
+      
       <button type="submit">Create Pal</button>
 
     </form>
